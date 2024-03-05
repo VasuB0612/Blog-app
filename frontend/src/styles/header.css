@@ -1,0 +1,38 @@
+.container {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 5px;
+}
+
+.logo {
+  margin-top: 10px;
+}
+
+.unorderedList {
+  display: flex;
+  margin-right: 30px;
+}
+
+.unorderedList ul {
+  margin-top: 10px;
+  display: flex;
+  margin-right: 15px;
+}
+
+.unorderedList li {
+  padding: 0 20px;
+}
+
+button {
+  margin-top: 10px;
+  border: 2px solid orange;
+  color: orange;
+  border-radius: 50px;
+  padding: 0 20px;
+}
+
+button:hover {
+  background-color: orange;
+  color: white;
+}
