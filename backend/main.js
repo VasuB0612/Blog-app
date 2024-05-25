@@ -9,14 +9,14 @@ const app = express();
 const port = process.env.PORT;
 const db = process.env.MONGO_URI;
 
+const userRoutes = require("./Routes/userRoutes");
+
 // middlewares
 app.use(cors());
 app.use(express.json());
 
-// Dummy route
-app.get("/", (req, res) => {
-  res.send("You found us");
-});
+// route
+app.use("/api/users", userRoutes);
 
 // Connecting to the database
 try {
