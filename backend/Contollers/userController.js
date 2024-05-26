@@ -24,11 +24,12 @@ exports.signup = async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
+    password = hashedPassword;
 
     const newUser = await User.create({
       username: username,
       email: email,
-      password: hashedPassword,
+      password: password,
     });
     res.status(201).send("User created successfully");
   } catch (error) {
@@ -37,4 +38,22 @@ exports.signup = async (req, res) => {
 };
 
 // Login users
-exports.login = async (req, res) => {};
+exports.login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).send("Please provide email and password");
+    }
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).send("Invalid credentials");
+    }
+    const isSamePassword = await bcrypt.compare(password, user.password);
+    if (!isSamePassword) {
+      return res.status(400).send("Invalid credentials");
+    }
+    return res.status(200).send("Successfully logged in");
+  } catch (error) {
+    console.log(error);
+  }
+};
