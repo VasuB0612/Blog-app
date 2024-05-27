@@ -1,10 +1,13 @@
+const mongoose = require("mongoose");
 const Blog = require("../models/blogModel");
+const User = require("../models/userModel");
 
 // Controller for creating a blog
 exports.createBlog = async (req, res) => {
   try {
-    const { title, description, image } = req.body;
-    if (!title || !description || !image) {
+    // user here is user ID
+    const { title, description, image, user } = req.body;
+    if (!title || !description || !image || !user) {
       return res.status(400).send({
         message: "Please provide all the required fields",
       });
@@ -14,7 +17,27 @@ exports.createBlog = async (req, res) => {
       description,
       image,
     };
-    const blog = await Blog.create(config);
+
+    const existingUser = await User.findById(user);
+    if (!existingUser) {
+      return res.status(400).send("Unable to find user");
+    }
+
+    const newBlog = new Blog({
+      title,
+      description,
+      image,
+      user,
+    });
+
+    const session = await mongoose.startSession();
+    session.startTransaction();
+    await newBlog.save({ session });
+    existingUser.blogs.push(newBlog);
+    await existingUser.save({ session });
+    await session.commitTransaction();
+    await newBlog.save();
+
     return res.status(201).send({
       message: "Your blog was successfully created",
     });

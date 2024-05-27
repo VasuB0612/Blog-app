@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     blogs: {
-      type: mongoose.Types.ObjectId,
+      type: Array,
       ref: "Blog",
     },
   },
