@@ -10,6 +10,7 @@ const port = process.env.PORT;
 const db = process.env.MONGO_URI;
 
 const userRoutes = require("./Routes/userRoutes");
+const blogRoutes = require("./Routes/blogRoutes");
 
 // middlewares
 app.use(cors());
@@ -17,6 +18,7 @@ app.use(express.json());
 
 // route
 app.use("/api/users", userRoutes);
+app.use("/api/blogs", blogRoutes);
 
 // Connecting to the database
 try {
