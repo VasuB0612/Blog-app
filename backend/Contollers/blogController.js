@@ -55,7 +55,19 @@ exports.fetchBlog = async (req, res) => {
   return res.status(200).send(existingBlog);
 };
 
-// Controller for fetching a specific user's blog by ID.
+// Controller for fetching a specific user's blogs by ID.
+exports.userBlog = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const userBlog = await User.findById(id).populate("blogs");
+    if (!userBlog) {
+      return res.status(400).send("Unable to find user");
+    }
+    return res.status(200).send(userBlog);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // Controller for deleting a blog
 exports.deleteBlog = async (req, res) => {

@@ -4,6 +4,7 @@ const {
   fetchBlog,
   deleteBlog,
   updateBlog,
+  userBlog,
 } = require("../Contollers/blogController");
 
 const app = express();
@@ -19,5 +20,8 @@ app.delete("/delete/:id", deleteBlog);
 
 // Update blog
 app.put("/update/:id", updateBlog);
+
+// Fetch a user's blogs
+app.get("/userBlog/:id", userBlog);
 
 module.exports = app;
