@@ -46,18 +46,32 @@ exports.createBlog = async (req, res) => {
   }
 };
 
-// Controller for Fetching a blog
-exports.fetchBlog = async (req, res) => {};
+// Controller for Fetching a random blog
+exports.fetchBlog = async (req, res) => {
+  const existingBlog = await Blog.findById(req.params.id);
+  if (!existingBlog) {
+    return res.status(400).send("Unable to find blog");
+  }
+  return res.status(200).send(existingBlog);
+};
+
+// Controller for fetching a specific user's blog by ID.
 
 // Controller for deleting a blog
 exports.deleteBlog = async (req, res) => {
   try {
     const { id } = req.params;
-    const delBlog = await Blog.findByIdAndDelete(id);
+    const delBlog = await Blog.findOneAndDelete(id).populate(
+      "user",
+      "-password"
+    );
+    console.log(delBlog);
+    await delBlog.user.blogs.pull(delBlog);
+    await delBlog.user.save();
     if (!delBlog) {
       return res.status(404).send("The blog does not exist.");
     }
-    return res.status(200).send("The blog has been deleted successfully");
+    return res.status(200).send(delBlog);
   } catch (error) {
     console.log(error);
   }

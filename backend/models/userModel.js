@@ -13,10 +13,12 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    blogs: {
-      type: Array,
-      ref: "Blog",
-    },
+    blogs: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "Blog",
+      },
+    ],
   },
   {
     timestamps: true,
