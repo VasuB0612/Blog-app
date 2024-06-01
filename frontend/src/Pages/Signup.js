@@ -32,7 +32,11 @@ const Signup = () => {
       >
         Sign up
       </Button>
-      <Link href="/login" sx={{ color: "#006400" }} marginTop={3}>
+      <Link
+        href="/login"
+        sx={{ color: "#006400", textDecoration: "none" }}
+        marginTop={2}
+      >
         Already have an account? Login here.
       </Link>
     </Box>
