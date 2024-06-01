@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 const Navbar = () => {
   //  Global state
   const isLogin = useSelector((state) => state.isLogin);
@@ -19,9 +19,9 @@ const Navbar = () => {
   const [value, setValue] = useState();
   return (
     <>
-      <AppBar position="sticky" sx={{ backgroundColor: "green" }}>
+      <AppBar position="sticky" sx={{ backgroundColor: "#006400" }}>
         <Toolbar>
-          <Typography variant="h4" sx={{ color: "bisque" }}>
+          <Typography variant="h4" sx={{ color: "#FFE4C4" }}>
             Slog
           </Typography>
           {isLogin && (
@@ -33,13 +33,13 @@ const Navbar = () => {
               >
                 <Tab
                   label="Blogs"
-                  sx={{ color: "bisque" }}
+                  sx={{ color: "#FFE4C4" }}
                   LinkComponent={Link}
                   to="/blogs"
                 ></Tab>
                 <Tab
                   label="My Blogs"
-                  sx={{ color: "bisque" }}
+                  sx={{ color: "#FFE4C4" }}
                   LinkComponent={Link}
                   to="/myBlogs"
                 ></Tab>
@@ -47,17 +47,26 @@ const Navbar = () => {
             </Box>
           )}
           <Box display={"flex"} marginLeft="auto">
-            <Button sx={{ color: "bisque" }} LinkComponent={Link} to="/login">
-              Login
-            </Button>
-            <Button
-              sx={{ color: "bisque" }}
-              LinkComponent={Link}
-              to="/register"
-            >
-              Sign up
-            </Button>
-            <Button sx={{ color: "bisque" }}>Logout</Button>
+            {!isLogin ? (
+              <>
+                <Button
+                  sx={{ color: "#FFE4C4" }}
+                  LinkComponent={Link}
+                  to="/login"
+                >
+                  Login
+                </Button>
+                <Button
+                  sx={{ color: "#FFE4C4" }}
+                  LinkComponent={Link}
+                  to="/register"
+                >
+                  Sign up
+                </Button>
+              </>
+            ) : (
+              <Button sx={{ color: "#FFE4C4" }}>Logout</Button>
+            )}
           </Box>
         </Toolbar>
       </AppBar>
