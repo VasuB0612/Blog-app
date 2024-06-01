@@ -5,7 +5,7 @@ const app = express();
 
 app.get("/allusers", getAllUsers);
 
-app.post("/signup", signup);
+app.post("/register", signup);
 
 app.post("/login", login);
 
