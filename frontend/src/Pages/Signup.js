@@ -86,7 +86,7 @@ const Signup = () => {
         <Button
           variant="contained"
           sx={{ backgroundColor: "#006400", color: "#FFE4C4" }}
-          onClick={handleSubmission}
+          type="submit"
         >
           Sign up
         </Button>

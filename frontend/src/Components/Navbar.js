@@ -9,12 +9,20 @@ import {
   Tab,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useBlog } from "../Context/BlogProvider";
 const Navbar = () => {
   //  Global state
-  const isLogin = useSelector((state) => state.isLogin);
-  console.log(isLogin);
+  const { user, setUser } = useBlog();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setUser(localStorage.removeItem("userInfo"));
+    navigate("/login");
+    console.log(user);
+  };
+
   // local state
   const [value, setValue] = useState();
   return (
@@ -24,7 +32,7 @@ const Navbar = () => {
           <Typography variant="h4" sx={{ color: "#FFE4C4" }}>
             Slog
           </Typography>
-          {isLogin && (
+          {user && (
             <Box display="flex" marginLeft="auto" marginRight="auto">
               <Tabs
                 textColor="inherit"
@@ -47,7 +55,7 @@ const Navbar = () => {
             </Box>
           )}
           <Box display={"flex"} marginLeft="auto">
-            {!isLogin ? (
+            {!user ? (
               <>
                 <Button
                   sx={{ color: "#FFE4C4" }}
@@ -65,7 +73,9 @@ const Navbar = () => {
                 </Button>
               </>
             ) : (
-              <Button sx={{ color: "#FFE4C4" }}>Logout</Button>
+              <Button sx={{ color: "#FFE4C4" }} onClick={handleLogout}>
+                Logout
+              </Button>
             )}
           </Box>
         </Toolbar>

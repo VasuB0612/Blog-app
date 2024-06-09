@@ -6,22 +6,23 @@ const {
   updateBlog,
   userBlog,
 } = require("../Contollers/blogController");
+const protect = require("../middlewares/authMiddleware");
 
-const app = express();
+const router = express.Router();
 
 // Creation of a blog
-app.post("/create", createBlog);
+router.route(protect, "/create").post(createBlog);
 
 // Getting a specific blog
-app.get("/fetch/:id", fetchBlog);
+router.route("/fetch/:id").get(fetchBlog);
 
 // Delete blog
-app.delete("/delete/:id", deleteBlog);
+router.route(protect, "/delete/:id").delete(deleteBlog);
 
 // Update blog
-app.put("/update/:id", updateBlog);
+router.route("/update/:id").put(updateBlog);
 
 // Fetch a user's blogs
-app.get("/userBlog/:id", userBlog);
+router.route(protect, "/userBlog/:id").get(userBlog);
 
-module.exports = app;
+module.exports = router;

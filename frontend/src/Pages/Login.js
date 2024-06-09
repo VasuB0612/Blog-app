@@ -1,18 +1,16 @@
 import { React, useState } from "react";
 import { Box, Typography, TextField, Button, Link } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useBlog } from "../Context/BlogProvider";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { authActions } from "../Redux/store";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
-
+  const { user, setUser } = useBlog();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setCredentials((prevState) => ({
@@ -32,15 +30,21 @@ const Login = () => {
         "http://localhost:8000/api/users/login",
         config
       );
-      if (response) {
-        dispatch(authActions.login());
-        alert("User logged in successfully");
+      if (response.data) {
+        const { email, token } = response.data;
+
+        const userInfo = {
+          email: email,
+          token: token,
+        };
+
+        localStorage.setItem("userInfo", JSON.stringify(userInfo));
+        setUser(userInfo);
         navigate("/");
       }
     } catch (error) {
       console.log(error);
     }
-    console.log(credentials);
   };
   return (
     <form onSubmit={handleSubmission}>
@@ -61,6 +65,7 @@ const Login = () => {
         </Typography>
         <TextField
           name="email"
+          value={credentials.email}
           label="Email"
           variant="outlined"
           sx={{ width: 300 }}
@@ -68,6 +73,7 @@ const Login = () => {
         />
         <TextField
           name="password"
+          value={credentials.password}
           label="Password"
           type="password"
           variant="outlined"
@@ -77,7 +83,7 @@ const Login = () => {
         <Button
           variant="contained"
           sx={{ backgroundColor: "#006400", color: "#FFE4C4" }}
-          onClick={handleSubmission}
+          type="submit"
         >
           Login
         </Button>

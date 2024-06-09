@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
+const asyncHandler = require("express-async-handler");
 const Blog = require("../models/blogModel");
 const User = require("../models/userModel");
 
 // Controller for creating a blog
-exports.createBlog = async (req, res) => {
+const createBlog = asyncHandler(async (req, res) => {
   try {
     // user here is user ID
     const { title, description, image, user } = req.body;
@@ -44,19 +45,19 @@ exports.createBlog = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-};
+});
 
 // Controller for Fetching a random blog
-exports.fetchBlog = async (req, res) => {
+const fetchBlog = asyncHandler(async (req, res) => {
   const existingBlog = await Blog.findById(req.params.id);
   if (!existingBlog) {
     return res.status(400).send("Unable to find blog");
   }
   return res.status(200).send(existingBlog);
-};
+});
 
 // Controller for fetching a specific user's blogs by ID.
-exports.userBlog = async (req, res) => {
+const userBlog = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
     const userBlog = await User.findById(id).populate("blogs");
@@ -67,10 +68,10 @@ exports.userBlog = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-};
+});
 
 // Controller for deleting a blog
-exports.deleteBlog = async (req, res) => {
+const deleteBlog = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
     const delBlog = await Blog.findOneAndDelete(id).populate(
@@ -87,10 +88,10 @@ exports.deleteBlog = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-};
+});
 
 // Controller for updating a blog
-exports.updateBlog = async (req, res) => {
+const updateBlog = asyncHandler(async (req, res) => {
   try {
     const { title, description, image } = req.body;
     const { id } = req.params;
@@ -106,4 +107,6 @@ exports.updateBlog = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-};
+});
+
+module.exports = { createBlog, fetchBlog, userBlog, deleteBlog, updateBlog };
