@@ -47,6 +47,18 @@ const createBlog = asyncHandler(async (req, res) => {
   }
 });
 
+// Fetching all the blogs
+const fetchAllBlogs = asyncHandler(async (req, res) => {
+  try {
+    const blogs = await Blog.find();
+    res.status(200).json(blogs);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Failed to fetch blogs", error: error.message });
+  }
+});
+
 // Controller for Fetching a random blog
 const fetchBlog = asyncHandler(async (req, res) => {
   const existingBlog = await Blog.findById(req.params.id);
@@ -109,4 +121,11 @@ const updateBlog = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { createBlog, fetchBlog, userBlog, deleteBlog, updateBlog };
+module.exports = {
+  createBlog,
+  fetchAllBlogs,
+  fetchBlog,
+  userBlog,
+  deleteBlog,
+  updateBlog,
+};

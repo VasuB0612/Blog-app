@@ -1,6 +1,7 @@
 const express = require("express");
 const {
   createBlog,
+  fetchAllBlogs,
   fetchBlog,
   deleteBlog,
   updateBlog,
@@ -12,6 +13,9 @@ const router = express.Router();
 
 // Creation of a blog
 router.route(protect, "/create").post(createBlog);
+
+// Fetching all blogs
+router.route("/all-blogs").get(fetchAllBlogs);
 
 // Getting a specific blog
 router.route("/fetch/:id").get(fetchBlog);

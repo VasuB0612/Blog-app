@@ -46,19 +46,22 @@ const login = asyncHandler(async (req, res) => {
       return res.status(400).send("Please provide email and password");
     }
     const user = await User.findOne({ email });
-    const isSamePassword = await bcrypt.compare(password, user.password);
-
-    if (user && isSamePassword) {
-      const token = generateRandomToken(user._id);
-      const object = {
-        name: user.username,
-        email: user.email,
-        token: token,
-      };
-      console.log(user._id);
-      return res.status(200).json(object);
+    if (!user) {
+      return res.status(401).send("Invalid email or password");
     }
-    return res.status(200).send("Successfully logged in");
+
+    const isSamePassword = await bcrypt.compare(password, user.password);
+    if (!isSamePassword) {
+      return res.status(401).send("Invalid email or password");
+    }
+
+    const token = generateRandomToken(user._id);
+    const object = {
+      name: user.username,
+      email: user.email,
+      token: token,
+    };
+    return res.status(200).json(object);
   } catch (error) {
     console.log(error);
   }
