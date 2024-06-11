@@ -20,7 +20,6 @@ const Navbar = () => {
   const handleLogout = () => {
     setUser(localStorage.removeItem("userInfo"));
     navigate("/login");
-    console.log(user);
   };
 
   // local state

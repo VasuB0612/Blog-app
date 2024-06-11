@@ -12,7 +12,7 @@ const protect = require("../middlewares/authMiddleware");
 const router = express.Router();
 
 // Creation of a blog
-router.route(protect, "/create").post(createBlog);
+router.route("/create").post(createBlog);
 
 // Fetching all blogs
 router.route("/all-blogs").get(fetchAllBlogs);

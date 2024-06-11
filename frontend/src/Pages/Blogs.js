@@ -9,16 +9,35 @@ const Blogs = () => {
       const { data } = await axios.get(
         "http://localhost:8000/api/blogs/all-blogs"
       );
-      if (data?.success) {
-        setBlogs(data?.blogs);
+      if (data) {
+        setBlogs(data);
+        console.log(blogs);
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     getAllBlogs();
   }, []);
 
-  return <div>{blogs && blogs.map((blog) => <BlogCards />)}</div>;
+  return (
+    <div>
+      {blogs &&
+        blogs.map((blog) => (
+          <div>
+            <BlogCards
+              key={blog._id}
+              title={blog.title}
+              description={blog.description}
+              image={blog.image}
+              username={blog.user.username}
+              when={blog.createdAt.slice(0, 10)}
+            />
+          </div>
+        ))}
+    </div>
+  );
 };
 
 export default Blogs;

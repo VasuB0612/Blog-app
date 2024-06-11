@@ -10,7 +10,6 @@ const BlogProvider = ({ children }) => {
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     setUser(userInfo);
-    console.log(userInfo);
   }, [navigate]);
 
   return (

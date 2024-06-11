@@ -50,7 +50,7 @@ const createBlog = asyncHandler(async (req, res) => {
 // Fetching all the blogs
 const fetchAllBlogs = asyncHandler(async (req, res) => {
   try {
-    const blogs = await Blog.find();
+    const blogs = await Blog.find().populate("user", "username");
     res.status(200).json(blogs);
   } catch (error) {
     res

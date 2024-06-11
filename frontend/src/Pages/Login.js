@@ -40,6 +40,7 @@ const Login = () => {
 
         localStorage.setItem("userInfo", JSON.stringify(userInfo));
         setUser(userInfo);
+        console.log(userInfo);
         navigate("/");
       }
     } catch (error) {
