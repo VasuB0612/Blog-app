@@ -57,6 +57,7 @@ const login = asyncHandler(async (req, res) => {
 
     const token = generateRandomToken(user._id);
     const object = {
+      id: user._id,
       name: user.username,
       email: user.email,
       token: token,

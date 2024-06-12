@@ -11,7 +11,6 @@ const Blogs = () => {
       );
       if (data) {
         setBlogs(data);
-        console.log(blogs);
       }
     } catch (error) {
       console.log(error);

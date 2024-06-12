@@ -26,14 +26,15 @@ const Login = () => {
         email: credentials.email,
         password: credentials.password,
       };
-      const response = await axios.post(
+      const { data } = await axios.post(
         "http://localhost:8000/api/users/login",
         config
       );
-      if (response.data) {
-        const { email, token } = response.data;
+      if (data) {
+        const { id, email, token } = data;
 
         const userInfo = {
+          id: id,
           email: email,
           token: token,
         };
@@ -41,7 +42,7 @@ const Login = () => {
         localStorage.setItem("userInfo", JSON.stringify(userInfo));
         setUser(userInfo);
         console.log(userInfo);
-        navigate("/");
+        navigate("/blogs");
       }
     } catch (error) {
       console.log(error);

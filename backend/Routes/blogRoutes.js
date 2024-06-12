@@ -27,6 +27,6 @@ router.route(protect, "/delete/:id").delete(deleteBlog);
 router.route("/update/:id").put(updateBlog);
 
 // Fetch a user's blogs
-router.route(protect, "/userBlog/:id").get(userBlog);
+router.route("/userBlog/:id").get(userBlog);
 
 module.exports = router;
