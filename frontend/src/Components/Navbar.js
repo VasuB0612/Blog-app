@@ -26,7 +26,12 @@ const Navbar = () => {
   const [value, setValue] = useState();
   return (
     <>
-      <AppBar position="sticky" sx={{ backgroundColor: "#006400" }}>
+      <AppBar
+        position="sticky"
+        sx={{
+          backgroundColor: "linear-gradient(45deg, #9c27b0, #6a1b9a)",
+        }}
+      >
         <Toolbar>
           <Typography variant="h4" sx={{ color: "#FFE4C4" }}>
             Slog
