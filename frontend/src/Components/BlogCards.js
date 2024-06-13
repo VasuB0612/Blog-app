@@ -17,7 +17,8 @@ export default function BlogCards({
   return (
     <Card
       sx={{
-        maxWidth: "35%",
+        width: "100vw", // Ensure the card takes full width
+        maxWidth: "25vw",
         margin: "auto",
         mt: 2,
         padding: 2,

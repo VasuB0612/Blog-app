@@ -52,17 +52,50 @@ const Signup = () => {
         justifyContent="center"
         margin="auto"
         marginTop={5}
+        borderRadius="10%"
         gap={2}
-        bgcolor="#d0f0c0"
+        bgcolor="#745E96"
       >
-        <Typography variant="h4" sx={{ color: "#006400" }}>
+        <Typography
+          variant="h4"
+          sx={{ color: "hotpink", fontFamily: "'Pixelify Sans', sans-serif" }}
+        >
           Sign up
         </Typography>
         <TextField
           label="Username"
           name="username"
           variant="outlined"
-          sx={{ width: 300 }}
+          sx={{
+            width: 300,
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "hotpink",
+              },
+              "&:hover fieldset": {
+                borderColor: "hotpink",
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: "hotpink",
+              },
+            },
+            "& .MuiInputLabel-root": {
+              color: "hotpink",
+            },
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: "hotpink",
+            },
+            "& .MuiOutlinedInput-input": {
+              color: "white", // placeholder text color
+              fontFamily: "'Pixelify Sans', sans-serif",
+            },
+          }}
+          InputLabelProps={{
+            style: { color: "hotpink" },
+          }}
+          InputProps={{
+            style: { color: "hotpink" },
+          }}
           value={credentials.name}
           onChange={handleChange}
         />
@@ -70,7 +103,36 @@ const Signup = () => {
           label="Email"
           name="email"
           variant="outlined"
-          sx={{ width: 300 }}
+          sx={{
+            width: 300,
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "hotpink",
+              },
+              "&:hover fieldset": {
+                borderColor: "hotpink",
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: "hotpink",
+              },
+            },
+            "& .MuiInputLabel-root": {
+              color: "hotpink",
+            },
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: "hotpink",
+            },
+            "& .MuiOutlinedInput-input": {
+              color: "white", // placeholder text color
+              fontFamily: "'Pixelify Sans', sans-serif",
+            },
+          }}
+          InputLabelProps={{
+            style: { color: "hotpink" },
+          }}
+          InputProps={{
+            style: { color: "hotpink" },
+          }}
           value={credentials.email}
           onChange={handleChange}
         />
@@ -79,20 +141,54 @@ const Signup = () => {
           name="password"
           type="password"
           variant="outlined"
-          sx={{ width: 300 }}
+          sx={{
+            width: 300,
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "hotpink",
+              },
+              "&:hover fieldset": {
+                borderColor: "hotpink",
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: "hotpink",
+              },
+            },
+            "& .MuiInputLabel-root": {
+              color: "hotpink",
+            },
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: "hotpink",
+            },
+            "& .MuiOutlinedInput-input": {
+              color: "white", // placeholder text color
+              fontFamily: "'Pixelify Sans', sans-serif",
+            },
+          }}
+          InputLabelProps={{
+            style: { color: "hotpink" },
+          }}
+          InputProps={{
+            style: { color: "hotpink" },
+          }}
           value={credentials.password}
           onChange={handleChange}
         />
         <Button
           variant="contained"
-          sx={{ backgroundColor: "#006400", color: "#FFE4C4" }}
+          sx={{
+            backgroundColor: "#301934",
+            color: "hotpink",
+            fontFamily: "'Pixelify Sans', sans-serif",
+            textTransform: "none",
+          }}
           type="submit"
         >
           Sign up
         </Button>
         <Link
           href="/login"
-          sx={{ color: "#006400", textDecoration: "none" }}
+          sx={{ color: "hotpink", textDecoration: "none" }}
           marginTop={2}
         >
           Already have an account? Login here.

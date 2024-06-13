@@ -29,47 +29,91 @@ const Navbar = () => {
       <AppBar
         position="sticky"
         sx={{
-          backgroundColor: "linear-gradient(45deg, #9c27b0, #6a1b9a)",
+          backgroundColor: "hotpink",
         }}
       >
         <Toolbar>
-          <Typography variant="h4" sx={{ color: "#FFE4C4" }}>
+          <Typography
+            variant="h4"
+            sx={{
+              color: "#745E96",
+              fontFamily: "'Pixelify Sans', sans-serif",
+              textTransform: "none",
+            }}
+          >
             Slog
           </Typography>
-          {user && (
-            <Box display="flex" marginLeft="auto" marginRight="auto">
-              <Tabs
-                textColor="inherit"
-                value={value}
-                onChange={(e, val) => setValue(val)}
-              >
-                <Tab
+          <Box display={"flex"} marginLeft="auto">
+            {user && (
+              <>
+                <Button
                   label="Blogs"
-                  sx={{ color: "#FFE4C4" }}
+                  sx={{
+                    color: "#745E96",
+                    fontFamily: "'Pixelify Sans', sans-serif",
+                    marginRight: 4,
+                    textTransform: "none",
+                    fontSize: "17px",
+                  }}
                   LinkComponent={Link}
                   to="/blogs"
-                ></Tab>
-                <Tab
+                >
+                  Blogs
+                </Button>
+                <Button
                   label="My Blogs"
-                  sx={{ color: "#FFE4C4" }}
+                  sx={{
+                    color: "#745E96",
+                    fontFamily: "'Pixelify Sans', sans-serif",
+                    marginRight: 4,
+                    textTransform: "none",
+                    fontSize: "17px",
+                  }}
                   LinkComponent={Link}
                   to="/myBlogs"
-                ></Tab>
-              </Tabs>
-            </Box>
-          )}
-          <Box display={"flex"} marginLeft="auto">
+                >
+                  My Blogs
+                </Button>
+
+                <Button
+                  label="My Blogs"
+                  sx={{
+                    color: "#745E96",
+                    fontFamily: "'Pixelify Sans', sans-serif",
+                    marginRight: 4,
+                    textTransform: "none",
+                    fontSize: "17px",
+                  }}
+                  LinkComponent={Link}
+                  to="/create"
+                >
+                  Create Blog
+                </Button>
+              </>
+            )}
             {!user ? (
               <>
                 <Button
-                  sx={{ color: "#FFE4C4" }}
+                  sx={{
+                    color: "#745E96",
+                    fontFamily: "'Pixelify Sans', sans-serif",
+                    marginRight: 4,
+                    textTransform: "none",
+                    fontSize: "17px",
+                  }}
                   LinkComponent={Link}
                   to="/login"
                 >
                   Login
                 </Button>
                 <Button
-                  sx={{ color: "#FFE4C4" }}
+                  sx={{
+                    color: "#745E96",
+                    fontFamily: "'Pixelify Sans', sans-serif",
+                    marginRight: 4,
+                    textTransform: "none",
+                    fontSize: "17px",
+                  }}
                   LinkComponent={Link}
                   to="/register"
                 >
@@ -77,7 +121,15 @@ const Navbar = () => {
                 </Button>
               </>
             ) : (
-              <Button sx={{ color: "#FFE4C4" }} onClick={handleLogout}>
+              <Button
+                sx={{
+                  color: "#745E96",
+                  fontFamily: "'Pixelify Sans', sans-serif",
+                  textTransform: "none",
+                  fontSize: "17px",
+                }}
+                onClick={handleLogout}
+              >
                 Logout
               </Button>
             )}
