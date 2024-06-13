@@ -2,6 +2,7 @@ import React from "react";
 import {
   Box,
   AppBar,
+  Avatar,
   Toolbar,
   Button,
   Typography,
@@ -33,6 +34,11 @@ const Navbar = () => {
         }}
       >
         <Toolbar>
+          <Avatar
+            src="https://cdn5.vectorstock.com/i/1000x1000/89/29/heart-pixel-pink-icon-isolated-on-black-vector-34538929.jpg"
+            alt="Logo"
+            sx={{ width: 32, height: 32, marginRight: 1, marginBottom: 0.5 }}
+          />
           <Typography
             variant="h4"
             sx={{
@@ -41,7 +47,7 @@ const Navbar = () => {
               textTransform: "none",
             }}
           >
-            Slog
+            WeBlog
           </Typography>
           <Box display={"flex"} marginLeft="auto">
             {user && (
@@ -51,7 +57,7 @@ const Navbar = () => {
                   sx={{
                     color: "#745E96",
                     fontFamily: "'Pixelify Sans', sans-serif",
-                    marginRight: 4,
+                    marginRight: 2,
                     textTransform: "none",
                     fontSize: "17px",
                   }}
@@ -65,7 +71,7 @@ const Navbar = () => {
                   sx={{
                     color: "#745E96",
                     fontFamily: "'Pixelify Sans', sans-serif",
-                    marginRight: 4,
+                    marginRight: 2,
                     textTransform: "none",
                     fontSize: "17px",
                   }}
@@ -80,7 +86,7 @@ const Navbar = () => {
                   sx={{
                     color: "#745E96",
                     fontFamily: "'Pixelify Sans', sans-serif",
-                    marginRight: 4,
+                    marginRight: 2,
                     textTransform: "none",
                     fontSize: "17px",
                   }}
@@ -97,7 +103,7 @@ const Navbar = () => {
                   sx={{
                     color: "#745E96",
                     fontFamily: "'Pixelify Sans', sans-serif",
-                    marginRight: 4,
+                    marginRight: 2,
                     textTransform: "none",
                     fontSize: "17px",
                   }}
