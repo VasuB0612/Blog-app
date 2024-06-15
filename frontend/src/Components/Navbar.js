@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useBlog } from "../Context/BlogProvider";
+import { IoMenuSharp } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
 import "../Styles/navStyles.css";
 const Navbar = () => {
   //  Global state
@@ -30,6 +32,18 @@ const Navbar = () => {
     flexWrap: "wrap",
   };
 
+  const showSideBar = (e) => {
+    e.preventDefault();
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.style.display = "flex";
+  };
+
+  const hideSideBar = (e) => {
+    e.preventDefault();
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.style.display = "none";
+  };
+
   // local state
   const [value, setValue] = useState();
   return (
@@ -39,17 +53,22 @@ const Navbar = () => {
           <li>
             <a href="#">Slog</a>
           </li>
-          <li>
+          <li class="hideOnSmallScreens">
             <a href="#">Blog</a>
           </li>
-          <li>
+          <li class="hideOnSmallScreens">
             <a href="#">My blogs</a>
           </li>
-          <li>
+          <li class="hideOnSmallScreens">
             <a href="#">Create</a>
           </li>
-          <li onClick={handleLogout}>
+          <li class="hideOnSmallScreens" onClick={handleLogout}>
             <a href="#">Logout</a>
+          </li>
+          <li class="menu_button" onClick={showSideBar}>
+            <a href="">
+              <IoMenuSharp />
+            </a>
           </li>
         </ul>
       )}
@@ -69,6 +88,11 @@ const Navbar = () => {
 
       {user && (
         <ul class="sidebar">
+          <li onClick={hideSideBar}>
+            <a href="">
+              <IoClose />
+            </a>
+          </li>
           <li>
             <a href="#">Blog</a>
           </li>
