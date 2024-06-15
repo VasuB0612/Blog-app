@@ -10,6 +10,9 @@ nav ul {
 }
 nav li {
   height: 50px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  font-size: medium;
 }
 
 nav a {
@@ -21,11 +24,12 @@ nav a {
   color: #745e96;
 }
 
-nav a:hover {
-  background-color: #694c94;
+nav li:hover {
+  background-color: rgb(235, 99, 167);
+  border-radius: 10px;
 }
 
-nav li:first-child {
+nav h1 {
   margin-right: auto;
 }
 
