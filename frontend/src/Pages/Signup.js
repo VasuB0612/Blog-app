@@ -188,7 +188,11 @@ const Signup = () => {
         </Button>
         <Link
           href="/login"
-          sx={{ color: "hotpink", textDecoration: "none" }}
+          sx={{
+            color: "hotpink",
+            textDecoration: "none",
+            fontFamily: "Pixelify Sans, sans-serif",
+          }}
           marginTop={2}
         >
           Already have an account? Login here.

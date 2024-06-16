@@ -13,6 +13,7 @@ nav li {
   transition: background-color 0.3s ease;
   font-weight: bold;
   font-size: medium;
+  font-family: "Pixelify Sans", "sans-serif";
 }
 
 nav a {

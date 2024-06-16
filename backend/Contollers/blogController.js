@@ -86,20 +86,33 @@ const userBlog = asyncHandler(async (req, res) => {
 // Controller for deleting a blog
 const deleteBlog = asyncHandler(async (req, res) => {
   try {
-    const { id } = req.params;
-    const delBlog = await Blog.findOneAndDelete(id).populate(
-      "user",
-      "-password"
-    );
-    console.log(delBlog);
-    await delBlog.user.blogs.pull(delBlog);
-    await delBlog.user.save();
-    if (!delBlog) {
-      return res.status(404).send("The blog does not exist.");
+    const { blogId, userId } = req.params;
+
+    const session = await mongoose.startSession();
+    session.startTransaction();
+
+    // Find and delete the blog
+    const blog = await Blog.findByIdAndDelete(blogId).session(session);
+    if (!blog) {
+      await session.abortTransaction();
+      session.endSession();
+      return res.status(404).send({ message: "Blog not found" });
     }
-    return res.status(200).send(delBlog);
+
+    // Remove the blog reference from the user
+    const user = await User.findById(userId).session(session);
+    if (user) {
+      user.blogs.pull(blogId);
+      await user.save({ session });
+    }
+
+    await session.commitTransaction();
+    session.endSession();
+
+    return res.status(200).send({ message: "Blog deleted successfully" });
   } catch (error) {
     console.log(error);
+    return res.status(500).send({ message: "Server error" });
   }
 });
 
