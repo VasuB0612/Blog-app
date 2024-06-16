@@ -21,7 +21,7 @@ router.route("/all-blogs").get(fetchAllBlogs);
 router.route("/fetch/:id").get(fetchBlog);
 
 // Delete blog
-router.route(protect, "/delete/:id").delete(deleteBlog);
+router.route("/delete/:id").delete(deleteBlog);
 
 // Update blog
 router.route("/update/:id").put(updateBlog);
