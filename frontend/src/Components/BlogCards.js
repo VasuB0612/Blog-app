@@ -11,16 +11,18 @@ export default function BlogCards({
 }) {
   const { user, setUser } = useBlog();
   return (
-    <div className="card">
-      <img src={image} alt="" className="image-card-img" />
-      <div className="image-card-overlay">
-        <div style={{ padding: "10px" }}>
-          <h3 style={{ color: "beige", fontSize: "15px" }}>{title}</h3>
+    <div className="card_container">
+      <div className="card">
+        <img src={image} alt="" />
+        <div className="card_content">
+          <h3>{title}</h3>
+          <p>{description}</p>
           <br />
-          <p style={{ color: "beige", fontSize: "12px" }}>{description}</p>
-          <br />
-          <p style={{ color: "beige", fontSize: "10px" }}>{username}</p>
-          <p style={{ color: "beige", fontSize: "10px" }}>{when}</p>
+          <p>{username}</p>
+          <p>{when}</p>
+          <a href="" className="btn">
+            Read more
+          </a>
         </div>
       </div>
     </div>

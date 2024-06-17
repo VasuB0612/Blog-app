@@ -44,7 +44,21 @@ const UserBlogs = () => {
           </div>
         ))
       ) : (
-        <h1>No blogs yet</h1>
+        <div
+          style={{
+            width: "40%",
+            display: "flex",
+            justifyContent: "center",
+            margin: "auto",
+            border: "2px solid black",
+            borderRadius: "30px",
+            marginTop: "20px",
+            padding: "40px",
+            fontFamily: "'Pixelify Sans', sans-serif",
+          }}
+        >
+          <h1>No blogs yet</h1>
+        </div>
       )}
     </div>
   );
