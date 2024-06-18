@@ -54,11 +54,11 @@ const Signup = () => {
         marginTop={5}
         borderRadius="10%"
         gap={2}
-        bgcolor="#745E96"
+        bgcolor="rgb(36, 35, 40)"
       >
         <Typography
           variant="h4"
-          sx={{ color: "hotpink", fontFamily: "'Pixelify Sans', sans-serif" }}
+          sx={{ color: "#1ac130", fontFamily: "'Pixelify Sans', sans-serif" }}
         >
           Sign up
         </Typography>
@@ -70,20 +70,20 @@ const Signup = () => {
             width: 300,
             "& .MuiOutlinedInput-root": {
               "& fieldset": {
-                borderColor: "hotpink",
+                borderColor: "#1ac130",
               },
               "&:hover fieldset": {
-                borderColor: "hotpink",
+                borderColor: "#1ac130",
               },
               "&.Mui-focused fieldset": {
-                borderColor: "hotpink",
+                borderColor: "#1ac130",
               },
             },
             "& .MuiInputLabel-root": {
-              color: "hotpink",
+              color: "#1ac130",
             },
             "& .MuiInputLabel-root.Mui-focused": {
-              color: "hotpink",
+              color: "#1ac130",
             },
             "& .MuiOutlinedInput-input": {
               color: "white", // placeholder text color
@@ -91,10 +91,10 @@ const Signup = () => {
             },
           }}
           InputLabelProps={{
-            style: { color: "hotpink" },
+            style: { color: "#1ac130" },
           }}
           InputProps={{
-            style: { color: "hotpink" },
+            style: { color: "#1ac130" },
           }}
           value={credentials.name}
           onChange={handleChange}
@@ -107,20 +107,20 @@ const Signup = () => {
             width: 300,
             "& .MuiOutlinedInput-root": {
               "& fieldset": {
-                borderColor: "hotpink",
+                borderColor: "#1ac130",
               },
               "&:hover fieldset": {
-                borderColor: "hotpink",
+                borderColor: "#1ac130",
               },
               "&.Mui-focused fieldset": {
-                borderColor: "hotpink",
+                borderColor: "#1ac130",
               },
             },
             "& .MuiInputLabel-root": {
-              color: "hotpink",
+              color: "#1ac130",
             },
             "& .MuiInputLabel-root.Mui-focused": {
-              color: "hotpink",
+              color: "#1ac130",
             },
             "& .MuiOutlinedInput-input": {
               color: "white", // placeholder text color
@@ -128,10 +128,10 @@ const Signup = () => {
             },
           }}
           InputLabelProps={{
-            style: { color: "hotpink" },
+            style: { color: "#1ac130" },
           }}
           InputProps={{
-            style: { color: "hotpink" },
+            style: { color: "#1ac130" },
           }}
           value={credentials.email}
           onChange={handleChange}
@@ -145,20 +145,20 @@ const Signup = () => {
             width: 300,
             "& .MuiOutlinedInput-root": {
               "& fieldset": {
-                borderColor: "hotpink",
+                borderColor: "#1ac130",
               },
               "&:hover fieldset": {
-                borderColor: "hotpink",
+                borderColor: "#1ac130",
               },
               "&.Mui-focused fieldset": {
-                borderColor: "hotpink",
+                borderColor: "#1ac130",
               },
             },
             "& .MuiInputLabel-root": {
-              color: "hotpink",
+              color: "#1ac130",
             },
             "& .MuiInputLabel-root.Mui-focused": {
-              color: "hotpink",
+              color: "#1ac130",
             },
             "& .MuiOutlinedInput-input": {
               color: "white", // placeholder text color
@@ -166,10 +166,10 @@ const Signup = () => {
             },
           }}
           InputLabelProps={{
-            style: { color: "hotpink" },
+            style: { color: "#1ac130" },
           }}
           InputProps={{
-            style: { color: "hotpink" },
+            style: { color: "#1ac130" },
           }}
           value={credentials.password}
           onChange={handleChange}
@@ -178,7 +178,7 @@ const Signup = () => {
           variant="contained"
           sx={{
             backgroundColor: "#301934",
-            color: "hotpink",
+            color: "#1ac130",
             fontFamily: "'Pixelify Sans', sans-serif",
             textTransform: "none",
           }}
@@ -189,7 +189,7 @@ const Signup = () => {
         <Link
           href="/login"
           sx={{
-            color: "hotpink",
+            color: "#1ac130",
             textDecoration: "none",
             fontFamily: "Pixelify Sans, sans-serif",
           }}

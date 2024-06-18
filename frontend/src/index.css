@@ -7,5 +7,6 @@
 body {
   min-height: 100vh;
   font-family: "roboto", "sans-serif";
-  background-color: #e2c20e;
+  /* background-color: #e2c20e; */
+  background-color: rgb(36, 35, 35);
 }

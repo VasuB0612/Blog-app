@@ -10,13 +10,21 @@ export default function BlogCards({
   when,
 }) {
   const { user, setUser } = useBlog();
+  const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) {
+      return text;
+    } else {
+      const truncated = text.slice(0, maxLength);
+      return truncated.slice(0, truncated.lastIndexOf(" ")) + "...";
+    }
+  };
   return (
-    <div className="card_container">
+    <div>
       <div className="card">
         <img src={image} alt="" />
         <div className="card_content">
           <h3>{title}</h3>
-          <p>{description}</p>
+          <p>{truncateText(description, 100)}</p>
           <br />
           <p>{username}</p>
           <p>{when}</p>

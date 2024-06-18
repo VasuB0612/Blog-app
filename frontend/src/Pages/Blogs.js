@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BlogCards from "../Components/BlogCards";
+import "../Styles/card.css";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -21,20 +22,34 @@ const Blogs = () => {
   }, []);
 
   return (
-    <div>
-      {blogs &&
+    <div className="card_container">
+      {blogs && blogs.length > 0 ? (
         blogs.map((blog) => (
-          <div>
-            <BlogCards
-              key={blog._id}
-              title={blog.title}
-              description={blog.description}
-              image={blog.image}
-              username={blog.user.username}
-              when={blog.createdAt.slice(0, 10)}
-            />
-          </div>
-        ))}
+          <BlogCards
+            title={blog.title}
+            description={blog.description}
+            image={blog.image}
+            username={blog.user.username}
+            when={blog.createdAt.slice(0, 10)}
+          />
+        ))
+      ) : (
+        <div
+          style={{
+            width: "40%",
+            display: "flex",
+            justifyContent: "center",
+            margin: "auto",
+            border: "2px solid black",
+            borderRadius: "30px",
+            marginTop: "20px",
+            padding: "40px",
+            fontFamily: "'Pixelify Sans', sans-serif",
+          }}
+        >
+          <h1>No blogs yet</h1>
+        </div>
+      )}
     </div>
   );
 };

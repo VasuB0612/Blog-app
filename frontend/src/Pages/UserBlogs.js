@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import BlogCards from "../Components/BlogCards";
+import "../Styles/card.css";
 import { useBlog } from "../Context/BlogProvider";
 
 const UserBlogs = () => {
@@ -28,20 +29,18 @@ const UserBlogs = () => {
   }, []);
 
   return (
-    <div>
+    <div className="card_container">
       {loading ? (
         <p>Loading...</p>
       ) : userBlogs && userBlogs.length > 0 ? (
         userBlogs.map((bog) => (
-          <div key={bog._id}>
-            <BlogCards
-              title={bog.title}
-              description={bog.description}
-              image={bog.image}
-              username={bog.user.username}
-              when={bog.createdAt.slice(0, 10)}
-            />
-          </div>
+          <BlogCards
+            title={bog.title}
+            description={bog.description}
+            image={bog.image}
+            username={bog.user.username}
+            when={bog.createdAt.slice(0, 10)}
+          />
         ))
       ) : (
         <div

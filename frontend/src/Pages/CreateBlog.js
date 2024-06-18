@@ -59,19 +59,50 @@ const CreateBlog = () => {
             variant="h2"
             textAlign="center"
             padding={3}
-            sx={{ fontFamily: "'Pixelify Sans', sans-serif" }}
+            sx={{ fontFamily: "'Pixelify Sans', sans-serif", color: "#1ac130" }}
           >
             Create a Post
           </Typography>
-          <InputLabel sx={{ mb: 1, mt: 2, fontSize: "24px" }}>Title</InputLabel>
+          <InputLabel sx={{ mb: 1, mt: 2, fontSize: "24px", color: "#1ac130" }}>
+            Title
+          </InputLabel>
           <TextField
             name="title"
             value={information.title}
             onChange={handleChange}
             variant="outlined"
             required
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#1ac130",
+                },
+                "&:hover fieldset": {
+                  borderColor: "#1ac130",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "#1ac130",
+                },
+              },
+              "& .MuiInputLabel-root": {
+                color: "#1ac130",
+              },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "#1ac130",
+              },
+              "& .MuiOutlinedInput-input": {
+                color: "white", // placeholder text color
+                fontFamily: "'Pixelify Sans', sans-serif",
+              },
+            }}
+            InputLabelProps={{
+              style: { color: "#1ac130" },
+            }}
+            InputProps={{
+              style: { color: "#1ac130" },
+            }}
           />
-          <InputLabel sx={{ mb: 1, mt: 2, fontSize: "24px" }}>
+          <InputLabel sx={{ mb: 1, mt: 2, fontSize: "24px", color: "#1ac130" }}>
             Image URL
           </InputLabel>
           <TextField
@@ -80,8 +111,37 @@ const CreateBlog = () => {
             onChange={handleChange}
             variant="outlined"
             required
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#1ac130",
+                },
+                "&:hover fieldset": {
+                  borderColor: "#1ac130",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "#1ac130",
+                },
+              },
+              "& .MuiInputLabel-root": {
+                color: "#1ac130",
+              },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "#1ac130",
+              },
+              "& .MuiOutlinedInput-input": {
+                color: "white", // placeholder text color
+                fontFamily: "'Pixelify Sans', sans-serif",
+              },
+            }}
+            InputLabelProps={{
+              style: { color: "#1ac130" },
+            }}
+            InputProps={{
+              style: { color: "#1ac130" },
+            }}
           />
-          <InputLabel sx={{ mb: 1, mt: 2, fontSize: "24px" }}>
+          <InputLabel sx={{ mb: 1, mt: 2, fontSize: "24px", color: "#1ac130" }}>
             Description
           </InputLabel>
           <textarea
@@ -93,11 +153,12 @@ const CreateBlog = () => {
             columns={10}
             style={{
               background: "transparent",
-              fontFamily: "'Pixelify Sans', sans-serif",
-              fontSize: "20px",
+              fontFamily: "sans-serif",
+              fontSize: "15px",
               paddingLeft: "10px",
               paddingTop: "10px",
-              color: "black",
+              color: "#1ac130",
+              border: "2px solid #1ac130",
             }}
           ></textarea>
           <button
@@ -109,17 +170,16 @@ const CreateBlog = () => {
               padding: "7px",
               mt: 2,
               borderRadius: "10px",
-              border: "2px dashed black",
               transition: "background-color 0.5s ease",
               fontFamily: "'Pixelify Sans', sans-serif",
             }}
             onMouseOver={(e) => {
               e.target.style.backgroundColor = "black";
-              e.target.style.color = "hotpink";
+              e.target.style.color = "#1ac130";
             }}
             onMouseOut={(e) => {
-              e.target.style.backgroundColor = "hotpink";
-              e.target.style.color = "black";
+              e.target.style.backgroundColor = "rgb(30, 30, 30)";
+              e.target.style.color = "#1ac130";
             }}
           >
             Submit
