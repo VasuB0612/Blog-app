@@ -1,6 +1,7 @@
 import * as React from "react";
 import "../Styles/card.css";
 import { useBlog } from "../Context/BlogProvider";
+import { MdDelete, MdEdit } from "react-icons/md";
 
 export default function BlogCards({
   description,
@@ -8,6 +9,8 @@ export default function BlogCards({
   image,
   username,
   when,
+  id,
+  isUser,
 }) {
   const { user, setUser } = useBlog();
   const truncateText = (text, maxLength) => {
@@ -28,9 +31,17 @@ export default function BlogCards({
           <br />
           <p>{username}</p>
           <p>{when}</p>
-          <a href="" className="btn">
-            Read more
-          </a>
+          <div className="deletionEdit">
+            <a href="" className="btn">
+              Read more
+            </a>
+            {isUser && (
+              <div className="icons">
+                <MdEdit className="icon1" />
+                <MdDelete className="icon2" />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

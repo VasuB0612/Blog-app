@@ -5,6 +5,8 @@ import "../Styles/card.css";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const { id } = userInfo;
   const getAllBlogs = async () => {
     try {
       const { data } = await axios.get(
@@ -26,6 +28,8 @@ const Blogs = () => {
       {blogs && blogs.length > 0 ? (
         blogs.map((blog) => (
           <BlogCards
+            id={blog._id}
+            isUser={id === blog.user._id}
             title={blog.title}
             description={blog.description}
             image={blog.image}

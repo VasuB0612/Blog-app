@@ -161,7 +161,7 @@ const Signup = () => {
               color: "#1ac130",
             },
             "& .MuiOutlinedInput-input": {
-              color: "white", // placeholder text color
+              color: "white",
               fontFamily: "'Pixelify Sans', sans-serif",
             },
           }}

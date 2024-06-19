@@ -166,12 +166,13 @@ const CreateBlog = () => {
             style={{
               marginTop: "7px",
               textTransform: "none",
-              backgroundColor: "hotpink",
+              backgroundColor: "rgb(30, 30, 30)",
               padding: "7px",
               mt: 2,
               borderRadius: "10px",
               transition: "background-color 0.5s ease",
               fontFamily: "'Pixelify Sans', sans-serif",
+              color: "#1ac130",
             }}
             onMouseOver={(e) => {
               e.target.style.backgroundColor = "black";
