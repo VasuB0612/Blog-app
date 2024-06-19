@@ -7,15 +7,16 @@ import { useBlog } from "../Context/BlogProvider";
 const UserBlogs = () => {
   const [userBlogs, setUserBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const { id } = userInfo;
   const getBlogs = async () => {
     try {
-      const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-      const { id } = userInfo;
       const { data } = await axios.get(
         `http://localhost:8000/api/blogs/userBlog/${id}`
       );
       if (data) {
         setUserBlogs(data);
+        console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -35,7 +36,8 @@ const UserBlogs = () => {
       ) : userBlogs && userBlogs.length > 0 ? (
         userBlogs.map((bog) => (
           <BlogCards
-            id={bog._id}
+            blogId={bog._id}
+            isUser={id === bog.user._id}
             title={bog.title}
             description={bog.description}
             image={bog.image}

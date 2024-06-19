@@ -9,7 +9,7 @@ export default function BlogCards({
   image,
   username,
   when,
-  id,
+  blogId,
   isUser,
 }) {
   const { user, setUser } = useBlog();

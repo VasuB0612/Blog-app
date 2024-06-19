@@ -14,6 +14,7 @@ const Blogs = () => {
       );
       if (data) {
         setBlogs(data);
+        console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -28,7 +29,7 @@ const Blogs = () => {
       {blogs && blogs.length > 0 ? (
         blogs.map((blog) => (
           <BlogCards
-            id={blog._id}
+            blogId={blog._id}
             isUser={id === blog.user._id}
             title={blog.title}
             description={blog.description}

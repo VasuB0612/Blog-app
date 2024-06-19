@@ -72,7 +72,13 @@ const fetchBlog = asyncHandler(async (req, res) => {
 const userBlog = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
-    const userblog = await User.findById(id).populate("blogs");
+    const userblog = await User.findById(id).populate({
+      path: "blogs",
+      populate: {
+        path: "user",
+        select: "username",
+      },
+    });
     if (!userblog) {
       return res.status(400).send("Unable to find user");
     }
