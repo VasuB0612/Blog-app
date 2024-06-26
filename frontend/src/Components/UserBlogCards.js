@@ -4,7 +4,7 @@ import { useBlog } from "../Context/BlogProvider";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
-export default function BlogCards({
+export default function UserBlogCards({
   description,
   title,
   image,
@@ -40,6 +40,14 @@ export default function BlogCards({
           <br />
           <p>{username}</p>
           <p>{when}</p>
+          <div className="deletionEdit">
+            {isUser && (
+              <div className="icons">
+                <MdEdit onClick={handleEdit} className="icon1" />
+                <MdDelete onClick={handleDelete} className="icon2" />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

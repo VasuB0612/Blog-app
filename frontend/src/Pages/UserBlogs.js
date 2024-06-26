@@ -1,9 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import BlogCards from "../Components/BlogCards";
+import UserBlogCards from "../Components/UserBlogCards";
 import "../Styles/card.css";
 import { Typography, Dialog, DialogContent, DialogTitle } from "@mui/material";
-import { useBlog } from "../Context/BlogProvider";
 
 const UserBlogs = () => {
   const [userBlogs, setUserBlogs] = useState([]);
@@ -49,7 +48,7 @@ const UserBlogs = () => {
       ) : userBlogs && userBlogs.length > 0 ? (
         userBlogs.map((bog) => (
           <div key={bog._id} onClick={() => handleOpen(bog)}>
-            <BlogCards
+            <UserBlogCards
               blogId={bog._id}
               isUser={id === bog.user._id}
               title={bog.title}
