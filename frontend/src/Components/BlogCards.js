@@ -2,6 +2,7 @@ import * as React from "react";
 import "../Styles/card.css";
 import { useBlog } from "../Context/BlogProvider";
 import { MdDelete, MdEdit } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 export default function BlogCards({
   description,
@@ -13,6 +14,7 @@ export default function BlogCards({
   isUser,
 }) {
   const { user, setUser } = useBlog();
+  const navigate = useNavigate();
   const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) {
       return text;
@@ -21,6 +23,13 @@ export default function BlogCards({
       return truncated.slice(0, truncated.lastIndexOf(" ")) + "...";
     }
   };
+
+  const handleEdit = () => {
+    navigate(`/edit/${blogId}`);
+  };
+
+  const handleDelete = () => {};
+
   return (
     <div>
       <div className="card">
@@ -32,13 +41,11 @@ export default function BlogCards({
           <p>{username}</p>
           <p>{when}</p>
           <div className="deletionEdit">
-            <a href="" className="btn">
-              Read more
-            </a>
+            <button className="btn">Read more</button>
             {isUser && (
               <div className="icons">
-                <MdEdit className="icon1" />
-                <MdDelete className="icon2" />
+                <MdEdit onClick={handleEdit} className="icon1" />
+                <MdDelete onClick={handleDelete} className="icon2" />
               </div>
             )}
           </div>

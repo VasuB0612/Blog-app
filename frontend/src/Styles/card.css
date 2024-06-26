@@ -85,6 +85,7 @@
 }
 
 .icons {
+  display: flex;
   padding: 0 10px;
   margin-top: 10px;
   margin-left: auto;

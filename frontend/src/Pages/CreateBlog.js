@@ -47,7 +47,7 @@ const CreateBlog = () => {
       <form onSubmit={handleSubmit}>
         <Box
           width="60%"
-          border={3}
+          border="2px solid #1ac130"
           borderRadius={10}
           padding={3}
           margin="auto"
@@ -164,6 +164,7 @@ const CreateBlog = () => {
           <button
             type="submit"
             style={{
+              fontSize: "17px",
               marginTop: "7px",
               textTransform: "none",
               backgroundColor: "rgb(30, 30, 30)",
