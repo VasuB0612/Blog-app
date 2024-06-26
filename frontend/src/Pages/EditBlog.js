@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Box, Typography, InputLabel, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import "../Styles/textarea.css";
 
 const EditBlog = () => {
   const [blog, setBlog] = useState([]);
@@ -168,15 +169,7 @@ const EditBlog = () => {
             onChange={handleChange}
             rows={10}
             columns={10}
-            style={{
-              background: "transparent",
-              fontFamily: "sans-serif",
-              fontSize: "15px",
-              paddingLeft: "10px",
-              paddingTop: "10px",
-              color: "#1ac130",
-              border: "2px solid #1ac130",
-            }}
+            class="custom-scrollbar"
           ></textarea>
           <button
             type="submit"

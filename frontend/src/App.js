@@ -1,4 +1,4 @@
-// import "./App.css";
+import "../src/Styles/textarea.css";
 import Navbar from "./Components/Navbar";
 import Signup from "./Pages/Signup";
 import Blogs from "./Pages/Blogs";

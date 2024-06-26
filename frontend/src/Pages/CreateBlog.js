@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, Typography, InputLabel, TextField } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../Styles/textarea.css";
 
 const CreateBlog = () => {
   const navigate = useNavigate();
@@ -151,15 +152,7 @@ const CreateBlog = () => {
             onChange={handleChange}
             rows={10}
             columns={10}
-            style={{
-              background: "transparent",
-              fontFamily: "sans-serif",
-              fontSize: "15px",
-              paddingLeft: "10px",
-              paddingTop: "10px",
-              color: "#1ac130",
-              border: "2px solid #1ac130",
-            }}
+            class="custom-scrollbar"
           ></textarea>
           <button
             type="submit"
