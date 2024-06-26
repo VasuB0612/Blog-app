@@ -2,11 +2,14 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import BlogCards from "../Components/BlogCards";
 import "../Styles/card.css";
+import { Typography, Dialog, DialogContent, DialogTitle } from "@mui/material";
 import { useBlog } from "../Context/BlogProvider";
 
 const UserBlogs = () => {
   const [userBlogs, setUserBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedBlog, setSelectedBlog] = useState(null);
+  const [open, setOpen] = useState(false);
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const { id } = userInfo;
   const getBlogs = async () => {
@@ -29,21 +32,33 @@ const UserBlogs = () => {
     getBlogs();
   }, []);
 
+  const handleOpen = (bog) => {
+    setSelectedBlog(bog);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedBlog(null);
+  };
+
   return (
     <div className="card_container">
       {loading ? (
         <p>Loading...</p>
       ) : userBlogs && userBlogs.length > 0 ? (
         userBlogs.map((bog) => (
-          <BlogCards
-            blogId={bog._id}
-            isUser={id === bog.user._id}
-            title={bog.title}
-            description={bog.description}
-            image={bog.image}
-            username={bog.user.username}
-            when={bog.createdAt.slice(0, 10)}
-          />
+          <div key={bog._id} onClick={() => handleOpen(bog)}>
+            <BlogCards
+              blogId={bog._id}
+              isUser={id === bog.user._id}
+              title={bog.title}
+              description={bog.description}
+              image={bog.image}
+              username={bog.user.username}
+              when={bog.createdAt.slice(0, 10)}
+            />
+          </div>
         ))
       ) : (
         <div
@@ -61,6 +76,44 @@ const UserBlogs = () => {
         >
           <h1>No blogs yet</h1>
         </div>
+      )}
+
+      {selectedBlog && (
+        <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
+          <DialogTitle sx={{ backgroundColor: "#1D1D1D", color: "bisque" }}>
+            {selectedBlog.title}
+          </DialogTitle>
+          <DialogContent
+            sx={{
+              backgroundColor: "#1d1d1d",
+              "&::-webkit-scrollbar": {
+                width: "8px",
+              },
+              "&::-webkit-scrollbar-track": {
+                background: "#1d1d1d",
+              },
+              "&::-webkit-scrollbar-thumb": {
+                background: "#888",
+                borderRadius: "10px",
+              },
+              "&::-webkit-scrollbar-thumb:hover": {
+                background: "#555",
+              },
+            }}
+          >
+            <img
+              src={selectedBlog.image}
+              alt={selectedBlog.title}
+              style={{ width: "100%", maxHeight: "300px", objectFit: "cover" }}
+            />
+            <Typography
+              variant="body1"
+              style={{ marginTop: "20px", padding: "20px", color: "bisque" }}
+            >
+              {selectedBlog.description}
+            </Typography>
+          </DialogContent>
+        </Dialog>
       )}
     </div>
   );
