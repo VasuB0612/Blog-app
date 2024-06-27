@@ -3,6 +3,7 @@
   "proxy": "https://blog-backend-pfb0.onrender.com",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://blog-frontend-5sat.onrender.com/",
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.8.2",
