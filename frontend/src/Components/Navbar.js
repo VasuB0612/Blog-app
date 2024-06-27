@@ -42,7 +42,7 @@ const Navbar = () => {
             <a href="/create">Create</a>
           </li>
           <li class="hideOnSmallScreens" onClick={handleLogout}>
-            <a href="https://blog-frontend-5sat.onrender.com/login">Logout</a>
+            <a href="#">Logout</a>
           </li>
           <li class="menu_button" onClick={showSideBar}>
             <a href="#">
@@ -54,10 +54,10 @@ const Navbar = () => {
       {!user && (
         <ul>
           <h1 style={{ fontFamily: "Pixelify Sans, sans-serif" }}>
-            <a href={user ? "/myBlogs" : ""}>Slog</a>
+            <a href={user ? "/myBlogs" : "#"}>Slog</a>
           </h1>
           <li>
-            <a href="https://blog-frontend-5sat.onrender.com/login">Login</a>
+            <a href="/login">Login</a>
           </li>
           <li>
             <a href="/register">Sign up</a>
@@ -89,7 +89,7 @@ const Navbar = () => {
       {!user && (
         <ul class="sidebar">
           <li>
-            <a href="https://blog-frontend-5sat.onrender.com/login">Login</a>
+            <a href="/login">Login</a>
           </li>
           <li>
             <a href="/register">Sign up</a>

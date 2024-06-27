@@ -16,10 +16,7 @@ function App() {
         <Route path="/myBlogs" element={<UserBlogs />} />
         <Route path="/edit/:id" element={<EditBlog />} />
         <Route path="/create" element={<CreateBlog />} />
-        <Route
-          path="https://blog-frontend-5sat.onrender.com/login"
-          element={<Login />}
-        />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Signup />} />
       </Routes>
     </>
