@@ -1,6 +1,5 @@
 import * as React from "react";
 import "../Styles/card.css";
-import { useNavigate } from "react-router-dom";
 
 export default function BlogCards({
   description,

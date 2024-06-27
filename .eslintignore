@@ -1,0 +1,6 @@
+# Ignore specific files
+src/Components/BlogCards.js
+src/Components/Navbar.js
+src/Components/UserBlogCards.js
+src/Pages/EditBlog.js
+src/Pages/UserBlogs.js

@@ -29,7 +29,7 @@ const UserBlogs = () => {
 
   useEffect(() => {
     getBlogs();
-  }, [getBlogs]);
+  }, []);
 
   const handleOpen = (bog) => {
     setSelectedBlog(bog);
