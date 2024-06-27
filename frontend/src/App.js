@@ -12,30 +12,12 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route
-          path="https://blog-frontend-5sat.onrender.com/blogs"
-          element={<Blogs />}
-        />
-        <Route
-          path="https://blog-frontend-5sat.onrender.com/myBlogs"
-          element={<UserBlogs />}
-        />
-        <Route
-          path="https://blog-frontend-5sat.onrender.com/edit/:id"
-          element={<EditBlog />}
-        />
-        <Route
-          path="https://blog-frontend-5sat.onrender.com/create"
-          element={<CreateBlog />}
-        />
-        <Route
-          path="https://blog-frontend-5sat.onrender.com/login"
-          element={<Login />}
-        />
-        <Route
-          path="https://blog-frontend-5sat.onrender.com/register"
-          element={<Signup />}
-        />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/myBlogs" element={<UserBlogs />} />
+        <Route path="/edit/:id" element={<EditBlog />} />
+        <Route path="/create" element={<CreateBlog />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Signup />} />
       </Routes>
     </>
   );
