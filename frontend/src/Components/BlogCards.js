@@ -1,7 +1,5 @@
 import * as React from "react";
 import "../Styles/card.css";
-import { useBlog } from "../Context/BlogProvider";
-import { MdDelete, MdEdit } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
 export default function BlogCards({
@@ -10,11 +8,7 @@ export default function BlogCards({
   image,
   username,
   when,
-  blogId,
-  isUser,
 }) {
-  const { user, setUser } = useBlog();
-  const navigate = useNavigate();
   const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) {
       return text;
@@ -23,12 +17,6 @@ export default function BlogCards({
       return truncated.slice(0, truncated.lastIndexOf(" ")) + "...";
     }
   };
-
-  const handleEdit = () => {
-    navigate(`/edit/${blogId}`);
-  };
-
-  const handleDelete = () => {};
 
   return (
     <div>

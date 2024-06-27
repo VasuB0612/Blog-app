@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useBlog } from "../Context/BlogProvider";
 import { IoMenuSharp } from "react-icons/io5";

@@ -13,7 +13,6 @@ export default function UserBlogCards({
   blogId,
   isUser,
 }) {
-  const { user, setUser } = useBlog();
   const navigate = useNavigate();
   const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) {
