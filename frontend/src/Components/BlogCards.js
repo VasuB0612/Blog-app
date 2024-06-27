@@ -20,7 +20,7 @@ export default function BlogCards({
   return (
     <div>
       <div className="card">
-        <img src={image} alt="tumchi aai" />
+        <img src={image} alt="image" />
         <div className="card_content">
           <h3>{title}</h3>
           <p>{truncateText(description, 100)}</p>
