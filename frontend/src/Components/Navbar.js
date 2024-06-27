@@ -42,7 +42,7 @@ const Navbar = () => {
             <a href="/create">Create</a>
           </li>
           <li class="hideOnSmallScreens" onClick={handleLogout}>
-            <a href="/login">Logout</a>
+            <a href="https://blog-frontend-5sat.onrender.com/login">Logout</a>
           </li>
           <li class="menu_button" onClick={showSideBar}>
             <a href="#">
@@ -57,7 +57,7 @@ const Navbar = () => {
             <a href={user ? "/myBlogs" : ""}>Slog</a>
           </h1>
           <li>
-            <a href="/login">Login</a>
+            <a href="https://blog-frontend-5sat.onrender.com/login">Login</a>
           </li>
           <li>
             <a href="/register">Sign up</a>
@@ -89,7 +89,7 @@ const Navbar = () => {
       {!user && (
         <ul class="sidebar">
           <li>
-            <a href="/login">Login</a>
+            <a href="https://blog-frontend-5sat.onrender.com/login">Login</a>
           </li>
           <li>
             <a href="/register">Sign up</a>
