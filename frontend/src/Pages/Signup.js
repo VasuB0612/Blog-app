@@ -28,7 +28,7 @@ const Signup = () => {
         password: credentials.password,
       };
       const response = await axios.post(
-        "http://localhost:8000/api/users/register",
+        "https://blog-backend-pfb0.onrender.com/api/users/register",
         config
       );
       if (response) {

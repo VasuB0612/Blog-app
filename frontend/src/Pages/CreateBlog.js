@@ -20,7 +20,7 @@ const CreateBlog = () => {
     console.log(information);
     try {
       const { data } = await axios.post(
-        "http://localhost:8000/api/blogs/create",
+        "https://blog-backend-pfb0.onrender.com/api/blogs/create",
         {
           title: information.title,
           image: information.image,

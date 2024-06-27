@@ -14,7 +14,7 @@ const UserBlogs = () => {
   const getBlogs = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/api/blogs/userBlog/${id}`
+        `https://blog-backend-pfb0.onrender.com/api/blogs/userBlog/${id}`
       );
       if (data) {
         setUserBlogs(data);

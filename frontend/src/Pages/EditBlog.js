@@ -14,7 +14,7 @@ const EditBlog = () => {
   const getBlog = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/api/blogs/fetch/${id}`
+        `https://blog-backend-pfb0.onrender.com/api/blogs/fetch/${id}`
       );
       if (data) {
         setBlog(data);
@@ -34,7 +34,7 @@ const EditBlog = () => {
     console.log(information);
     try {
       const { data } = await axios.put(
-        `http://localhost:8000/api/blogs/update/${id}`,
+        `https://blog-backend-pfb0.onrender.com/api/blogs/update/${id}`,
         {
           title: information.title,
           image: information.image,
