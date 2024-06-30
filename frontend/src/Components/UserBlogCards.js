@@ -3,6 +3,7 @@ import "../Styles/card.css";
 import { useBlog } from "../Context/BlogProvider";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function UserBlogCards({
   description,
@@ -27,7 +28,20 @@ export default function UserBlogCards({
     navigate(`/edit/${blogId}`);
   };
 
-  const handleDelete = () => {};
+  const handleDelete = async () => {
+    try {
+      const response = await axios.delete(
+        `https://blog-backend-pfb0.onrender.com/api/blogs/delete/${blogId}`
+      );
+      if (response.status === 200) {
+        alert("Blog has been deleted successfully.");
+      } else {
+        alert("Failed to delete the blog. Please try again.");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
