@@ -57,6 +57,7 @@ const UserBlogs = () => {
         userBlogs.map((bog) => (
           <div key={bog._id} onClick={() => handleOpen(bog)}>
             <UserBlogCards
+              removeBlog={setUserBlogs}
               blogId={bog._id}
               isUser={id === bog.user._id}
               title={bog.title}

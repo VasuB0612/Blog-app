@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function UserBlogCards({
+  removeBlog,
   description,
   title,
   image,
@@ -35,6 +36,7 @@ export default function UserBlogCards({
       );
       if (response.status === 200) {
         alert("Blog has been deleted successfully.");
+        removeBlog((blogs) => blogs.filter((blog) => blog._id !== blogId));
       } else {
         alert("Failed to delete the blog. Please try again.");
       }
