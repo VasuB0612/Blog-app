@@ -2,7 +2,13 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import UserBlogCards from "../Components/UserBlogCards";
 import "../Styles/card.css";
-import { Typography, Dialog, DialogContent, DialogTitle } from "@mui/material";
+import {
+  Typography,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  CircularProgress,
+} from "@mui/material";
 
 const UserBlogs = () => {
   const [userBlogs, setUserBlogs] = useState([]);
@@ -44,7 +50,9 @@ const UserBlogs = () => {
   return (
     <div className="card_container">
       {loading ? (
-        <p>Loading...</p>
+        <p>
+          <CircularProgress style={{ color: "bisque" }} disableShrink />
+        </p>
       ) : userBlogs && userBlogs.length > 0 ? (
         userBlogs.map((bog) => (
           <div key={bog._id} onClick={() => handleOpen(bog)}>
@@ -66,14 +74,14 @@ const UserBlogs = () => {
             display: "flex",
             justifyContent: "center",
             margin: "auto",
-            border: "2px solid black",
+            border: "2px solid #1ac130",
             borderRadius: "30px",
             marginTop: "20px",
             padding: "40px",
             fontFamily: "'Pixelify Sans', sans-serif",
           }}
         >
-          <h1>No blogs yet</h1>
+          <h1 style={{ color: "#1ac130" }}>No blogs yet</h1>
         </div>
       )}
 

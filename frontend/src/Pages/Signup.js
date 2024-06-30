@@ -181,6 +181,7 @@ const Signup = () => {
             color: "#1ac130",
             fontFamily: "'Pixelify Sans', sans-serif",
             textTransform: "none",
+            ":hover": { backgroundColor: "#2a0134" },
           }}
           type="submit"
         >

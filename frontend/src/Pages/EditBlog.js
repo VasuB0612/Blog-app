@@ -72,6 +72,11 @@ const EditBlog = () => {
           display="flex"
           flexDirection="column"
           marginTop="30px"
+          sx={{
+            "@media (max-width: 600px)": {
+              width: "80%",
+            },
+          }}
         >
           <Typography
             variant="h2"

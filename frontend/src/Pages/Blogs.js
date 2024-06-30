@@ -60,14 +60,14 @@ const Blogs = () => {
             display: "flex",
             justifyContent: "center",
             margin: "auto",
-            border: "2px solid black",
+            border: "2px solid #1ac130",
             borderRadius: "30px",
             marginTop: "20px",
             padding: "40px",
             fontFamily: "'Pixelify Sans', sans-serif",
           }}
         >
-          <h1>No blogs yet</h1>
+          <h1 style={{ color: "#1ac130" }}>No blogs yet</h1>
         </div>
       )}
 
