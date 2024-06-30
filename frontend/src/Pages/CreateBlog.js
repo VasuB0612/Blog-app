@@ -55,6 +55,11 @@ const CreateBlog = () => {
           display="flex"
           flexDirection="column"
           marginTop="30px"
+          sx={{
+            "@media (max-width: 600px)": {
+              width: "80%",
+            },
+          }}
         >
           <Typography
             variant="h2"
@@ -92,7 +97,7 @@ const CreateBlog = () => {
                 color: "#1ac130",
               },
               "& .MuiOutlinedInput-input": {
-                color: "white", // placeholder text color
+                color: "white",
                 fontFamily: "'Pixelify Sans', sans-serif",
               },
             }}
@@ -131,7 +136,7 @@ const CreateBlog = () => {
                 color: "#1ac130",
               },
               "& .MuiOutlinedInput-input": {
-                color: "white", // placeholder text color
+                color: "white",
                 fontFamily: "'Pixelify Sans', sans-serif",
               },
             }}
