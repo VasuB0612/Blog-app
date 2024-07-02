@@ -31,11 +31,12 @@ export default function UserBlogCards({
 
   const handleDelete = async () => {
     try {
+      console.log(blogId);
       const response = await axios.delete(
         `https://blog-backend-pfb0.onrender.com/api/blogs/delete/${blogId}`
       );
       if (response.status === 200) {
-        alert("Blog has been deleted successfully.");
+        navigate("/myBlogs");
         removeBlog((blogs) => blogs.filter((blog) => blog._id !== blogId));
       } else {
         alert("Failed to delete the blog. Please try again.");

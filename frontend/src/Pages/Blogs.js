@@ -40,19 +40,24 @@ const Blogs = () => {
   return (
     <div className="card_container">
       {blogs && blogs.length > 0 ? (
-        blogs.map((blog) => (
-          <div onClick={() => handleOpen(blog)}>
-            <BlogCards
-              blogId={blog._id}
-              isUser={id === blog.user._id}
-              title={blog.title}
-              description={blog.description}
-              image={blog.image}
-              username={blog.user.username}
-              when={blog.createdAt.slice(0, 10)}
-            />
-          </div>
-        ))
+        blogs.map(
+          (blog) => (
+            console.log(blog.user._id),
+            (
+              <div onClick={() => handleOpen(blog)}>
+                <BlogCards
+                  blogId={blog._id}
+                  isUser={id === blog.user._id}
+                  title={blog.title}
+                  description={blog.description}
+                  image={blog.image}
+                  username={blog.user.username}
+                  when={blog.createdAt.slice(0, 10)}
+                />
+              </div>
+            )
+          )
+        )
       ) : (
         <div
           style={{

@@ -54,7 +54,7 @@ const Navbar = () => {
       {!user && (
         <ul>
           <h1 style={{ fontFamily: "Pixelify Sans, sans-serif" }}>
-            <a href={user ? "/myBlogs" : "#"}>Slog</a>
+            <a href={user ? "/myBlogs" : "/"}>Slog</a>
           </h1>
           <li>
             <a href="/login">Login</a>

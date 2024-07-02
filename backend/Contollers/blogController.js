@@ -93,15 +93,14 @@ const userBlog = asyncHandler(async (req, res) => {
 const deleteBlog = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
-    const delBlog = await Blog.findOneAndDelete(id).populate(
+    const delBlog = await Blog.findByIdAndDelete(id).populate(
       "user",
       "-password"
     );
     console.log(delBlog);
-    await delBlog.user.blogs.pull(delBlog);
-    await delBlog.user.save();
-    if (!delBlog) {
-      return res.status(404).send("The blog does not exist.");
+    if (delBlog.user) {
+      delBlog.user.blogs.pull(delBlog);
+      await delBlog.user.save();
     }
     return res.status(200).send(delBlog);
   } catch (error) {

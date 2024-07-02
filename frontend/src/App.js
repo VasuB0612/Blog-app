@@ -1,5 +1,6 @@
 import "../src/Styles/textarea.css";
 import Navbar from "./Components/Navbar";
+import HomePage from "./Components/HomePage";
 import Signup from "./Pages/Signup";
 import Blogs from "./Pages/Blogs";
 import UserBlogs from "./Pages/UserBlogs";
@@ -12,6 +13,7 @@ function App() {
     <>
       <Navbar />
       <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/myBlogs" element={<UserBlogs />} />
         <Route path="/edit/:id" element={<EditBlog />} />
