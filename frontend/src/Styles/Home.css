@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.heading {
+  margin: 50px;
+}
+
+.text {
+  font-weight: bold;
+  color: #1ac130;
+  align-items: center;
+}
+
+.cursor {
+  color: red;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin-top: 40%;
+  }
+  .heading {
+    font-size: 20px;
+  }
+}
