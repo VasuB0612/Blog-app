@@ -9,6 +9,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [error, setError] = useState("");
   const { user, setUser } = useBlog();
   const navigate = useNavigate();
 
@@ -46,10 +47,33 @@ const Login = () => {
       }
     } catch (error) {
       console.log(error);
+      setError(error.response.data);
+      setTimeout(() => {
+        setError("");
+      }, 3000);
+      console.log(error);
     }
   };
   return (
     <form onSubmit={handleSubmission}>
+      {error && (
+        <Box
+          sx={{
+            position: "fixed",
+            top: 20,
+            right: 20,
+            backgroundColor: "red",
+            color: "white",
+            padding: 2,
+            borderRadius: 1,
+            boxShadow: 3,
+            transition: "opacity 0.5s ease-in-out",
+            opacity: error ? 1 : 0,
+          }}
+        >
+          {error}
+        </Box>
+      )}
       <Box
         maxWidth={400}
         height={500}
