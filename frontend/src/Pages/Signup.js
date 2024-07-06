@@ -119,7 +119,7 @@ const Signup = () => {
             },
             "& .MuiOutlinedInput-input": {
               color: "white", // placeholder text color
-              fontFamily: "'Pixelify Sans', sans-serif",
+              fontFamily: "Source Code Pro, monospace",
             },
           }}
           InputLabelProps={{
@@ -156,7 +156,7 @@ const Signup = () => {
             },
             "& .MuiOutlinedInput-input": {
               color: "white", // placeholder text color
-              fontFamily: "'Pixelify Sans', sans-serif",
+              fontFamily: "Source Code Pro, monospace",
             },
           }}
           InputLabelProps={{
@@ -194,7 +194,7 @@ const Signup = () => {
             },
             "& .MuiOutlinedInput-input": {
               color: "white",
-              fontFamily: "'Pixelify Sans', sans-serif",
+              fontFamily: "Source Code Pro, monospace",
             },
           }}
           InputLabelProps={{
@@ -211,7 +211,7 @@ const Signup = () => {
           sx={{
             backgroundColor: "#301934",
             color: "#1ac130",
-            fontFamily: "'Pixelify Sans', sans-serif",
+            fontFamily: "Source Code Pro, monospace",
             textTransform: "none",
             ":hover": { backgroundColor: "#2a0134" },
           }}

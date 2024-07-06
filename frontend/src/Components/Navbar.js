@@ -29,7 +29,7 @@ const Navbar = () => {
     <nav>
       {user && (
         <ul>
-          <h1 style={{ fontFamily: "Pixelify Sans, sans-serif" }}>
+          <h1 style={{ fontFamily: "Source Code Pro, monospace" }}>
             <a href={user ? "/myBlogs" : "#"}>Slog</a>
           </h1>
           <li class="hideOnSmallScreens">
@@ -53,7 +53,7 @@ const Navbar = () => {
       )}
       {!user && (
         <ul>
-          <h1 style={{ fontFamily: "Pixelify Sans, sans-serif" }}>
+          <h1 style={{ fontFamily: "Source Code Pro, monospace" }}>
             <a href={user ? "/myBlogs" : "/"}>Slog</a>
           </h1>
           <li>

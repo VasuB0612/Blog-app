@@ -36,7 +36,7 @@ export default function BlogCards({
         `https://blog-backend-pfb0.onrender.com/api/blogs/delete/${blogId}`
       );
       if (response.status === 200) {
-        navigate("/myBlogs");
+        navigate("/blogs");
         removeBlog((blogs) => blogs.filter((blog) => blog._id !== blogId));
       } else {
         alert("Failed to delete the blog. Please try again.");

@@ -129,7 +129,7 @@ const Login = () => {
             },
             "& .MuiOutlinedInput-input": {
               color: "white",
-              fontFamily: "'Pixelify Sans', sans-serif",
+              fontFamily: "Source Code Pro, monospace",
             },
           }}
           InputLabelProps={{
@@ -167,7 +167,7 @@ const Login = () => {
             },
             "& .MuiOutlinedInput-input": {
               color: "white", // placeholder text color
-              fontFamily: "'Pixelify Sans', sans-serif",
+              fontFamily: "Source Code Pro, monospace",
             },
           }}
           InputLabelProps={{
@@ -183,7 +183,7 @@ const Login = () => {
           sx={{
             backgroundColor: "#301934",
             color: "#1ac130",
-            fontFamily: "'Pixelify Sans', sans-serif",
+            fontFamily: "Source Code Pro, monospace",
             textTransform: "none",
             ":hover": { backgroundColor: "#2a0134" },
           }}
@@ -197,7 +197,7 @@ const Login = () => {
           sx={{
             color: "#1ac130",
             textDecoration: "none",
-            fontFamily: "Pixelify Sans, sans-serif",
+            fontFamily: "Source Code Pro, monospace",
           }}
           marginTop={2}
         >
