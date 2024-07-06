@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import Dropdown from "../Components/Dropdown";
 import { useNavigate } from "react-router-dom";
 import { useBlog } from "../Context/BlogProvider";
-import { IoMenuSharp } from "react-icons/io5";
-import { IoClose } from "react-icons/io5";
+import { IoMenuSharp, IoClose, IoPersonCircleSharp } from "react-icons/io5";
 import "../Styles/navStyles.css";
 const Navbar = () => {
   const { user, setUser } = useBlog();
   const navigate = useNavigate();
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const handleLogout = () => {
     setUser(localStorage.removeItem("userInfo"));
@@ -41,8 +42,10 @@ const Navbar = () => {
           <li class="hideOnSmallScreens">
             <a href="/create">Create</a>
           </li>
-          <li class="hideOnSmallScreens" onClick={handleLogout}>
-            <a href="#">Logout</a>
+          <li class="hideOnSmallScreens">
+            <a href="#">
+              <Dropdown />
+            </a>
           </li>
           <li class="menu_button" onClick={showSideBar}>
             <a href="#">
@@ -80,6 +83,9 @@ const Navbar = () => {
           </li>
           <li>
             <a href="/create">Create</a>
+          </li>
+          <li>
+            <a href="/profile">My stuff</a>
           </li>
           <li onClick={handleLogout}>
             <a href="#">Logout</a>
