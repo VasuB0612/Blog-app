@@ -79,10 +79,16 @@ const UserBlogs = () => {
             borderRadius: "30px",
             marginTop: "20px",
             padding: "40px",
-            fontFamily: "'Pixelify Sans', sans-serif",
+            fontFamily: "Source Code Pro, monospace",
           }}
         >
-          <h1 style={{ color: "#1ac130" }}>No blogs yet</h1>
+          <h1
+            style={{
+              color: "#1ac130",
+            }}
+          >
+            No blogs yet
+          </h1>
         </div>
       )}
 
