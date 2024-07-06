@@ -1,5 +1,12 @@
 import { React, useState } from "react";
-import { Box, Typography, TextField, Button, Link } from "@mui/material";
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  Link,
+  CircularProgress,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useBlog } from "../Context/BlogProvider";
 import axios from "axios";
@@ -9,6 +16,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const { user, setUser } = useBlog();
   const navigate = useNavigate();
@@ -22,6 +30,7 @@ const Login = () => {
 
   const handleSubmission = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const config = {
         email: credentials.email,
@@ -42,7 +51,6 @@ const Login = () => {
 
         localStorage.setItem("userInfo", JSON.stringify(userInfo));
         setUser(userInfo);
-        console.log(userInfo);
         navigate("/blogs");
       }
     } catch (error) {
@@ -52,6 +60,8 @@ const Login = () => {
         setError("");
       }, 3000);
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -180,7 +190,7 @@ const Login = () => {
           type="submit"
           // marginTop={}
         >
-          Login
+          {loading ? <CircularProgress size={24} color="inherit" /> : "Login"}
         </Button>
         <Link
           href="/register"

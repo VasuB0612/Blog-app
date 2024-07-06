@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Box, Typography, TextField, Button, Link } from "@mui/material";
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  Link,
+  CircularProgress,
+} from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +17,7 @@ const Signup = () => {
     password: "",
   });
   const [error, setError] = useState("");
-
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -22,6 +29,7 @@ const Signup = () => {
 
   const handleSubmission = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const config = {
         username: credentials.username,
@@ -33,7 +41,6 @@ const Signup = () => {
         config
       );
       if (response) {
-        alert("User registered successfully");
         navigate("/login");
       }
     } catch (error) {
@@ -43,8 +50,9 @@ const Signup = () => {
         setError("");
       }, 3000);
       console.log(error);
+    } finally {
+      setLoading(false);
     }
-    console.log(credentials);
   };
 
   return (
@@ -209,7 +217,7 @@ const Signup = () => {
           }}
           type="submit"
         >
-          Sign up
+          {loading ? <CircularProgress size={24} color="inherit" /> : "Sign up"}
         </Button>
         <Link
           href="/login"
