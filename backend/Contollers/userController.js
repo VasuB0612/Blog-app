@@ -81,7 +81,7 @@ const resetPassword = asyncHandler(async (req, res) => {
     const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, {
       expiresIn: "5m",
     });
-    const link = `http://localhost:8000/forgot-password/${oldUser._id}/${token}`;
+    const link = `https://blog-backend-pfb0.onrender.com/api/users/forgot-password/${oldUser._id}/${token}`;
     console.log(link);
   } catch (error) {
     console.log(error);

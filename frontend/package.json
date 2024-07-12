@@ -1,6 +1,6 @@
 {
   "name": "frog",
-  "proxy": "http://localhost:8000",
+  "proxy": "https://blog-backend-pfb0.onrender.com",
   "version": "0.1.0",
   "private": true,
   "homepage": ".",

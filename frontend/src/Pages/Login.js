@@ -37,7 +37,7 @@ const Login = () => {
         password: credentials.password,
       };
       const { data } = await axios.post(
-        "http://localhost:8000/api/users/login",
+        "https://blog-backend-pfb0.onrender.com/api/users/login",
         config
       );
       if (data) {
