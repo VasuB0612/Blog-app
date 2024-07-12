@@ -1,6 +1,7 @@
 import Navbar from "./Components/Navbar";
 import HomePage from "./Components/HomePage";
 import Profile from "./Components/Profile";
+import ForgotPassword from "./Components/ForgotPassword";
 import Signup from "./Pages/Signup";
 import Blogs from "./Pages/Blogs";
 import UserBlogs from "./Pages/UserBlogs";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Signup />} />
+        <Route path="/reset-password" element={<ForgotPassword />} />
       </Routes>
     </>
   );

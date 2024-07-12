@@ -1,7 +1,9 @@
 const User = require("../models/userModel");
+const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 const generateRandomToken = require("../Config/generateToken");
+const jwt_secret = process.env.JWT_SECRET;
 
 // Get all users
 const getAllUsers = asyncHandler(async (req, res) => {
@@ -68,4 +70,28 @@ const login = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { getAllUsers, login, signup };
+const resetPassword = asyncHandler(async (req, res) => {
+  const { email } = req.body;
+  try {
+    const oldUser = await User.findOne({ email });
+    if (!oldUser) {
+      return res.status(400).json({ status: "User not found" });
+    }
+    const secret = jwt_secret + oldUser.password;
+    const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, {
+      expiresIn: "5m",
+    });
+    const link = `http://localhost:8000/forgot-password/${oldUser._id}/${token}`;
+    console.log(link);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+const forgotPassword = asyncHandler(async (req, res) => {
+  const { id, token } = req.params;
+  console.log(req.params);
+  res.send("OK");
+});
+
+module.exports = { getAllUsers, login, signup, resetPassword, forgotPassword };
