@@ -98,9 +98,7 @@ const forgotPassword = asyncHandler(async (req, res) => {
   const secret = jwt_secret + oldUser.password;
   try {
     const verify = jwt.verify(token, secret);
-    if (verify) {
-      res.status(200).json({ status: "Password reset link sent" });
-    }
+    res.render("index", { email: verify.email });
   } catch (error) {
     res.status(400).json({ status: "Not verified" });
   }

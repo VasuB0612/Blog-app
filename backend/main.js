@@ -15,6 +15,7 @@ const blogRoutes = require("./Routes/blogRoutes");
 // middlewares
 app.use(cors());
 app.use(express.json());
+app.set("view engine", "ejs");
 
 // route
 app.use("/api/users", userRoutes);

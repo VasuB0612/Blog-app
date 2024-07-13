@@ -17,9 +17,7 @@ const ForgotPassword = () => {
       }
       alert("User does not exist");
     } catch (error) {
-      alert(
-        "An error occurred while trying to reset the password. Please try again."
-      );
+      alert(error);
     }
   };
 
