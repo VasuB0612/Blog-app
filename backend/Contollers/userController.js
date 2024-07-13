@@ -104,4 +104,34 @@ const forgotPassword = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { getAllUsers, login, signup, resetPassword, forgotPassword };
+const forgotPasswordPost = asyncHandler(async (req, res) => {
+  const { id, token } = req.params;
+  console.log(req.params);
+  const oldUser = await User.findOne({ _id: id });
+  if (!oldUser) {
+    return res.status(400).json({ status: "User not found" });
+  }
+  const secret = jwt_secret + oldUser.password;
+  try {
+    const verify = jwt.verify(token, secret);
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const updatedUser = await User.updateOne(
+      { _id: id },
+      { $set: { password: hashedPassword } }
+    );
+    res.status(200).json({ status: "Password updated" });
+    // res.render("index", { email: verify.email });
+    const { password, confirmPassword } = req.body;
+  } catch (error) {
+    res.status(400).json({ status: "Not verified" });
+  }
+});
+
+module.exports = {
+  getAllUsers,
+  login,
+  signup,
+  resetPassword,
+  forgotPassword,
+  forgotPasswordPost,
+};
