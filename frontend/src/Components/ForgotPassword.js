@@ -8,7 +8,7 @@ const ForgotPassword = () => {
     try {
       e.preventDefault();
       const { data } = await axios.post(
-        "https://blog-backend-pfb0.onrender.com/api/users/reset-password",
+        "http://localhost:8000/api/users/reset-password",
         { email }
       );
       if (data) {
