@@ -91,7 +91,19 @@ const resetPassword = asyncHandler(async (req, res) => {
 const forgotPassword = asyncHandler(async (req, res) => {
   const { id, token } = req.params;
   console.log(req.params);
-  res.send("OK");
+  const oldUser = await User.findOne({ _id: id });
+  if (!oldUser) {
+    return res.status(400).json({ status: "User not found" });
+  }
+  const secret = jwt_secret + oldUser.password;
+  try {
+    const verify = jwt.verify(token, secret);
+    if (verify) {
+      res.status(200).json({ status: "Password reset link sent" });
+    }
+  } catch (error) {
+    res.status(400).json({ status: "Not verified" });
+  }
 });
 
 module.exports = { getAllUsers, login, signup, resetPassword, forgotPassword };
