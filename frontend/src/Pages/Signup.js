@@ -224,7 +224,7 @@ const Signup = () => {
           sx={{
             color: "#1ac130",
             textDecoration: "none",
-            fontFamily: "Pixelify Sans, sans-serif",
+            fontFamily: "Source Code Pro, monospace",
           }}
           marginTop={2}
         >

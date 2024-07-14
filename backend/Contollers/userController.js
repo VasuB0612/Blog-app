@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 const generateRandomToken = require("../Config/generateToken");
+const nodemailer = require("nodemailer");
 const jwt_secret = process.env.JWT_SECRET;
 
 // Get all users
@@ -82,6 +83,28 @@ const resetPassword = asyncHandler(async (req, res) => {
       expiresIn: "5m",
     });
     const link = `https://blog-backend-pfb0.onrender.com/api/users/forgot-password/${oldUser._id}/${token}`;
+    var transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "vasubhatnagar612@gmail.com",
+        pass: "password",
+      },
+    });
+
+    var mailOptions = {
+      from: "youremail@gmail.com",
+      to: "vasubhatnagar612@gmail.com",
+      subject: "Password Reset",
+      text: link,
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Email sent: " + info.response);
+      }
+    });
     console.log(link);
   } catch (error) {
     console.log(error);
