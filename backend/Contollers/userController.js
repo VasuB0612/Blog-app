@@ -106,6 +106,7 @@ const forgotPassword = asyncHandler(async (req, res) => {
 
 const forgotPasswordPost = asyncHandler(async (req, res) => {
   const { id, token } = req.params;
+  const { password } = req.body;
   console.log(req.params);
   const oldUser = await User.findOne({ _id: id });
   if (!oldUser) {
