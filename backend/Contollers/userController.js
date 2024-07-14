@@ -86,8 +86,8 @@ const resetPassword = asyncHandler(async (req, res) => {
     var transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "vasubhatnagar612@gmail.com",
-        pass: "password",
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
       },
     });
 
