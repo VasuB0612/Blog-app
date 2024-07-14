@@ -122,7 +122,6 @@ const forgotPasswordPost = asyncHandler(async (req, res) => {
     );
     res.status(200).json({ status: "Password updated" });
     // res.render("index", { email: verify.email });
-    const { password, confirmPassword } = req.body;
   } catch (error) {
     res.status(400).json({ status: "There was an error." });
   }
